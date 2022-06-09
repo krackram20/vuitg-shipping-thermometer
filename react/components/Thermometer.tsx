@@ -1,14 +1,19 @@
 import React from 'react'
 
 type Props = {
-  width: number
+  width: number,
+  className: string,
+  thermometerColor: string
 }
 
-const Thermometer = ({width }: Props) => {
+const Thermometer = ({width, className, thermometerColor }: Props) => {
     return (
       <div
+
+      className= {className}
       style={
         {
+
           display: 'flex',
           alignItems: 'center',
           backgroundColor: "transparent",
@@ -21,10 +26,7 @@ const Thermometer = ({width }: Props) => {
         <div
       style={
         {
-          borderTop: '1px solid #737475',
-          borderLeft: '1px solid #737475',
-          borderBottom: '1px solid #737475',
-          backgroundColor: "white",
+          backgroundColor: "rgb(204 209 203)",
           zIndex: 2,
           marginTop: '5px',
           height: '20px',
@@ -32,10 +34,12 @@ const Thermometer = ({width }: Props) => {
           width: '85%'
           }
           }>
-        <div  style={
+        <div
+        className={thermometerColor}
+        style={
         {
           width: `${(width > 85 ? 100 : width)}%`,
-          backgroundColor: "#27d40d",
+          backgroundColor: "#23bf0b",
           height: '100%',
           maxWidth: '100%',
           borderRadius: '10px 0px 0px 10px'
@@ -49,12 +53,10 @@ const Thermometer = ({width }: Props) => {
       style={
         {
 
-          borderTop: '1px solid #737475',
-          borderRight: '1px solid #737475',
-          borderBottom: '1px solid #737475',
+
           position: "relative",
-          right: "7px",
-          backgroundColor: "white",
+          right: "9px",
+          backgroundColor: "rgb(204 209 203)",
           zIndex: 1,
           marginTop: '5px',
           height: '50px',
@@ -65,10 +67,12 @@ const Thermometer = ({width }: Props) => {
 
           }
           }>
-        <div  style={
+        <div
+        className={thermometerColor}
+        style={
         {
           width: `${(width > 85) ? (width - 85)*6.6 : 0}%`,
-          backgroundColor: "#27d40d",
+          backgroundColor: "#23bf0b",
           height: '100%',
           maxWidth: '100%'
           }
