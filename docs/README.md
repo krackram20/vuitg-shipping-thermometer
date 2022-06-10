@@ -10,7 +10,7 @@
 
  
 
-![Media Placeholder](![image](https://user-images.githubusercontent.com/62782975/173134153-f9df322c-bb16-4f36-934a-5fea4cfe97cd.png))
+![Media Placeholder](![image](https://user-images.githubusercontent.com/62782975/173134263-d5bf956c-80aa-4b92-82dd-2290e9b051e0.png)
 
 ## Configuration 
 
