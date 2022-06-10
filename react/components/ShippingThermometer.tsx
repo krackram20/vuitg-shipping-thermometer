@@ -1,34 +1,63 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useOrderForm } from 'vtex.order-manager/OrderForm'
 import Thermometer from './Thermometer'
 import { useCssHandles } from 'vtex.css-handles'
 
+
+
+
 type Props={
-  goal: number,
-  goalComplete: string
+  promotionID: string
 }
 
 const ShippingThermometer = (
   {
-    goal = 200000,
-    goalComplete = "Congratulations! you get Free Shipping!"
+    promotionID = '568c62a5-386d-477b-9b7a-bd38b1e3b78e'
   }: Props) => {
 
+  const [promotionFloor, setPromotionFloor] = useState(1000000000)
+
+  const promotionUrl = 'https://targetclone--vuitg.myvtex.com/api/rnb/pvt/calculatorconfiguration/' + promotionID
+
+  const getPromotionData = () => {
+    fetch(promotionUrl)
+      .then(response => {
+        return response.json()
+      })
+      .then(data => setPromotionFloor(data.totalValueFloor))
+      .catch(err => console.log("ERROR:", err))
+  }
+
+   useEffect(() => {
+    getPromotionData()
+   }, [])
+
   const {orderForm:{totalizers}} = useOrderForm()
+
   const total:number = (totalizers[0].value) /100
-  const freeShippingPercentage: number = Math.round((total/goal)*100)
-  const howMuchTillGoal: number = goal - total
+
+  const freeShippingPercentage: number = Math.round((total/promotionFloor)*100)
+
+  const howMuchTillFreeShipping: number = promotionFloor - total
+
   const CSS_HANDLES = ['thermometer__container',
                         'free__shipping__text',
                         'not__free__text',
                         'image__container',
                          'thermomether_color']
+
   const handles = useCssHandles(CSS_HANDLES)
 
+    console.log('data', promotionFloor);
+
   return (
-    (goal < total)
+    (promotionFloor < total)
     ?
     <div className={handles.thermometer__container}>
+      <Thermometer
+       width={freeShippingPercentage}
+       className = {handles.image__container}
+       thermometerColor = {handles.thermomether_color}/>
       <p
       className= {handles.free__shipping__text}
       style={
@@ -36,7 +65,7 @@ const ShippingThermometer = (
          fontWeight: 'bold'
         }
         }>
-        {goalComplete}
+        "Congratulations! you get Free Shipping!"
         </p>
     </div>
     :
@@ -46,10 +75,27 @@ const ShippingThermometer = (
        className = {handles.image__container}
        thermometerColor = {handles.thermomether_color}/>
     <p className={handles.not__free__text}>
-      {`You are still $${howMuchTillGoal} short to qualify for free shipping!`}
+      {`You are still $${howMuchTillFreeShipping} short to qualify for free shipping!`}
     </p>
   </div>
   )
+
+
+}
+
+ShippingThermometer.schema = {
+  title: "Thermometer",
+  type: "object",
+  properties: {
+    promotionID: {
+      title: "id de la promocion",
+      description: "los ids se pueden obtener de : {workspace}--{vendor}.myvtex.com/api/rnb/pvt/benefits/calculatorconfiguration/",
+      type: "string",
+      widget: {
+        "ui:widget": "textarea"
+      }
+    }
+  }
 
 }
 
