@@ -11,16 +11,14 @@ type Props={
 }
 
 const ShippingThermometer = (
-  {
-    promotionID = '568c62a5-386d-477b-9b7a-bd38b1e3b78e'
-  }: Props) => {
+  { promotionID = '568c62a5-386d-477b-9b7a-bd38b1e3b78e'}: Props) => {
 
   const [promotionFloor, setPromotionFloor] = useState(1000000000)
 
   const promotionUrl = 'https://targetclone--vuitg.myvtex.com/api/rnb/pvt/calculatorconfiguration/' + promotionID
 
   const getPromotionData = () => {
-    fetch(promotionUrl)
+      fetch(promotionUrl)
       .then(response => {
         return response.json()
       })
@@ -31,6 +29,7 @@ const ShippingThermometer = (
    useEffect(() => {
     getPromotionData()
    }, [])
+
 
   const {orderForm:{totalizers}} = useOrderForm()
 
@@ -48,55 +47,54 @@ const ShippingThermometer = (
 
   const handles = useCssHandles(CSS_HANDLES)
 
-    console.log('data', promotionFloor);
 
   return (
     (promotionFloor < total)
     ?
-    <div className={handles.thermometer__container}>
-      <Thermometer
-       width={freeShippingPercentage}
-       className = {handles.image__container}
-       thermometerColor = {handles.thermomether_color}/>
-      <p
-      className= {handles.free__shipping__text}
-      style={
-        {color: 'rgb(0 102 1)',
-         fontWeight: 'bold'
-        }
-        }>
-        "Congratulations! you get Free Shipping!"
-        </p>
-    </div>
+      <div className={handles.thermometer__container}>
+        <Thermometer
+        width={freeShippingPercentage}
+        className = {handles.image__container}
+        thermometerColor = {handles.thermomether_color}/>
+
+        <p
+        className= {handles.free__shipping__text}
+        style={{color: 'rgb(0 102 1)', fontWeight: 'bold'}}>
+          "Congratulations! you get Free Shipping!"
+          </p>
+      </div>
+
     :
-  <div className={handles.thermometer__container}>
-    <Thermometer
-       width={freeShippingPercentage}
-       className = {handles.image__container}
-       thermometerColor = {handles.thermomether_color}/>
-    <p className={handles.not__free__text}>
-      {`You are still $${howMuchTillFreeShipping} short to qualify for free shipping!`}
-    </p>
-  </div>
+
+      <div className={handles.thermometer__container}>
+        <Thermometer
+          width={freeShippingPercentage}
+          className = {handles.image__container}
+          thermometerColor = {handles.thermomether_color}/>
+
+        <p className={handles.not__free__text}>
+          {`You are still $${howMuchTillFreeShipping} short to qualify for free shipping!`}
+        </p>
+      </div>
   )
 
 
 }
 
-ShippingThermometer.schema = {
-  title: "Thermometer",
-  type: "object",
-  properties: {
-    promotionID: {
-      title: "id de la promocion",
-      description: "los ids se pueden obtener de : {workspace}--{vendor}.myvtex.com/api/rnb/pvt/benefits/calculatorconfiguration/",
-      type: "string",
-      widget: {
-        "ui:widget": "textarea"
+    ShippingThermometer.schema = {
+      title: "Thermometer",
+      type: "object",
+      properties: {
+        promotionID: {
+          title: "id de la promocion",
+          description: "los ids se pueden obtener de : {workspace}--{vendor}.myvtex.com/api/rnb/pvt/benefits/calculatorconfiguration/",
+          type: "string",
+          widget: {
+            "ui:widget": "textarea"
+          }
+        }
       }
-    }
-  }
 
-}
+    }
 
 export default ShippingThermometer
