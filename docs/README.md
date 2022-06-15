@@ -36,7 +36,7 @@ Los IDs de las promociones se pueden obtener de: *{workspace}--{vendor}.myvtex.c
 
 ## Customizacion
 
-La customizacion de los lementos que componen el componente se puede realizar desde el archivo `itgloberspartnercl.shipping-thermometer.css`
+La customizacion de los elementos incluidos en el componente se puede realizar desde el archivo `itgloberspartnercl.shipping-thermometer.css`
 
 `In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).`
 
