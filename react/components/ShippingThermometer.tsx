@@ -13,9 +13,9 @@ type Props={
 const ShippingThermometer = (
   { promotionID = '568c62a5-386d-477b-9b7a-bd38b1e3b78e'}: Props) => {
 
-  const [promotionFloor, setPromotionFloor] = useState(1000000000)
+  const [promotionFloor, setPromotionFloor] = useState(500000)
 
-  const promotionUrl = 'https://targetclone--vuitg.myvtex.com/api/rnb/pvt/calculatorconfiguration/' + promotionID
+  const promotionUrl = 'https://targetclone--itgloberspartnercl.myvtex.com/api/rnb/pvt/calculatorconfiguration/' + promotionID
 
   const getPromotionData = () => {
       fetch(promotionUrl)

@@ -19,7 +19,7 @@
 
 Para utlizar el componente se debe:
 
-1. Añadir la dependencia `"vuitg.shipping-thermometer": "0.x"` al `manifest.json`;
+1. Añadir la dependencia `"itgloberspartnercl.shipping-thermometer": "0.x"` al `manifest.json`;
 2. Declarar el bloque `shipping-thermometer` e incluirlo dentro del minicart.
 
 ![image](https://user-images.githubusercontent.com/62782975/173134448-9110385b-6e03-4655-9b4e-dfd007806772.png)
@@ -36,7 +36,7 @@ Los IDs de las promociones se pueden obtener de: *{workspace}--{vendor}.myvtex.c
 
 ## Customizacion
 
-La customizacion de los lementos que componen el componente se puede realizar desde el archivo `vuitg.shipping-thermometer.css`
+La customizacion de los lementos que componen el componente se puede realizar desde el archivo `itgloberspartnercl.shipping-thermometer.css`
 
 `In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).`
 
