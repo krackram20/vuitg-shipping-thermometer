@@ -60,7 +60,7 @@ const ShippingThermometer = (
         <p
         className= {handles.free__shipping__text}
         style={{color: 'rgb(0 102 1)', fontWeight: 'bold'}}>
-          "Congratulations! you get Free Shipping!"
+          Congratulations! you get Free Shipping!
           </p>
       </div>
 

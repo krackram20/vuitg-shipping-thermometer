@@ -66,7 +66,8 @@ const Thermometer = ({width, className, thermometerColor }: Props) => {
             borderRadius: '50%',
             width: '15%',
             border: '2px solid rgb(204 209 203)',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            borderBlockColor: ''
 
 
             }
