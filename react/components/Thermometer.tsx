@@ -28,7 +28,7 @@ const Thermometer = ({width, className, thermometerColor }: Props) => {
         style={
 
           {
-            //parte inicial del termometro (palito)
+            // First part of the thermometer (body)
             backgroundColor: "rgb(204 209 203)",
             zIndex: 2,
             marginTop: '5px',
@@ -38,15 +38,15 @@ const Thermometer = ({width, className, thermometerColor }: Props) => {
             borderTop: '2px solid rgb(204 209 203)',
             borderBottom: '2px solid rgb(204 209 203)',
             borderLeft: '2px solid rgb(204 209 203)'
-            
+
             }
             }>
           <div
           className={thermometerColor}
           style={
           {
-            // div que llenara progresivamente el termometro hasta el inicio de la bola
-            width: `${(width > 85 ? 100 : width*1.2)}%`, //condicional para llenar de manera proporcial el inicio del termometro
+            // This div will progressively fill the div above acording to the minicart totalizer
+            width: `${(width > 85 ? 100 : width*1.2)}%`,
             backgroundColor: "#23bf0b",
             height: '100%',
             maxWidth: '100%',
@@ -59,7 +59,7 @@ const Thermometer = ({width, className, thermometerColor }: Props) => {
         <div
         style={
           {
-            //parte final del termometro (bola)
+            //End of the thermometer (head)
             position: "relative",
             right: "9px",
             backgroundColor: "rgb(204 209 203)",
@@ -79,9 +79,8 @@ const Thermometer = ({width, className, thermometerColor }: Props) => {
           className={thermometerColor}
           style={
           {
-            // div que llenara progresivamente el termometro hasta el final
-            width: `${(width > 85) ? (width - 85)*(100/15) : 0}%`, //condicional para llenar de manera proporcial el final del termometro
-            backgroundColor: "#23bf0b",
+            // This div fills up the head of the thermometer
+            width: `${(width > 85) ? (width - 85)*(100/15) : 0}%`,
             height: '100%',
             maxWidth: '100%'
             }
