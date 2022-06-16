@@ -12,7 +12,10 @@ type Props={
 
 const ShippingThermometer = (
   { promotionID = '568c62a5-386d-477b-9b7a-bd38b1e3b78e'}: Props) => {
+  
+  const {orderForm:{totalizers}} = useOrderForm()
 
+  const totalizerValue = totalizers[0]?.value
   const [promotionFloor, setPromotionFloor] = useState(500000)
 
   const promotionUrl = 'https://targetclone--itgloberspartnercl.myvtex.com/api/rnb/pvt/calculatorconfiguration/' + promotionID
@@ -31,9 +34,7 @@ const ShippingThermometer = (
    }, [])
 
 
-  const {orderForm:{totalizers}} = useOrderForm()
-
-  const total:number = (totalizers[0].value) /100
+  const total:number =   (totalizerValue) /100 
 
   const freeShippingPercentage: number = Math.round((total/promotionFloor)*100)
 
