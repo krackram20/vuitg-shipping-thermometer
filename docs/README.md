@@ -8,19 +8,19 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- DOCS-IGNORE:end -->
 
- Componente custom que permite visualizar un termometro, el cual indica cuanto falta para recibir el benefio de envio gratis.
+ This component renders a thermometer which fills up accordng to the amount of money left to receive free shipping.
  
  ![targetthermometer](https://user-images.githubusercontent.com/62782975/173135293-6adf7ee7-52fc-4af5-a8ed-b90b6f346690.JPG)
 
 
 
 
-## Configuracion
+## Configuration
 
-Para utlizar el componente se debe:
+In order to use this component you must:
 
-1. Añadir la dependencia `"itgloberspartnercl.shipping-thermometer": "0.x"` al `manifest.json`;
-2. Declarar el bloque `shipping-thermometer` e incluirlo dentro del minicart.
+1. Add the dependency `"itgloberspartnercl.shipping-thermometer": "0.x"` to `manifest.json`;
+2. Declare the block `shipping-thermometer` and add it to the minicart.
 
 ![image](https://user-images.githubusercontent.com/62782975/173134448-9110385b-6e03-4655-9b4e-dfd007806772.png)
 
@@ -29,14 +29,14 @@ Para utlizar el componente se debe:
 
 | Prop name    | Type            | Description    | Default value                                                                                                                               |
 | ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | 
-| `promotionID`      | `String`       | ID de la promocion de envio gratis        | `XXXXXX`        |
+| `promotionID`      | `String`       | promo ID       | `XXXXXX`        |
 
-Los IDs de las promociones se pueden obtener de: *{workspace}--{vendor}.myvtex.com/api/rnb/pvt/benefits/calculatorconfiguration/*
+The promo ID can be retrieved from: *{workspace}--{vendor}.myvtex.com/api/rnb/pvt/benefits/calculatorconfiguration/*
  
 
-## Customizacion
+## Customization
 
-La customizacion de los elementos incluidos en el componente se puede realizar desde el archivo `itgloberspartnercl.shipping-thermometer.css`
+css styles can be done in: `itgloberspartnercl.shipping-thermometer.css`
 
 `In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).`
 
