@@ -35,7 +35,10 @@ const Thermometer = ({width, className, thermometerColor }: Props) => {
             height: '20px',
             borderRadius: '10px',
             width: '85%',
-            border: '2px solid rgb(204 209 203)'
+            borderTop: '2px solid rgb(204 209 203)',
+            borderBottom: '2px solid rgb(204 209 203)',
+            borderLeft: '2px solid rgb(204 209 203)'
+            
             }
             }>
           <div
